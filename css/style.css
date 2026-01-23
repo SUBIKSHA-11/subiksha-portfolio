@@ -25,7 +25,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Remove slow loading animations - make cards visible immediately */
+
 .card {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -127,7 +127,6 @@ nav a {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Animated underline effect */
 nav a::before {
   content: '';
   position: absolute;
@@ -150,7 +149,6 @@ nav a:hover::before {
   width: 80%;
 }
 
-/* Active page styling */
 nav a.active {
   color: #60a5fa;
   background-color: rgba(59, 130, 246, 0.15);
@@ -159,8 +157,6 @@ nav a.active {
 nav a.active::before {
   width: 80%;
 }
-
-/* Dark navigation variant (same as regular for monochrome) */
 .nav-dark {
   background: rgba(30, 41, 59, 0.98);
   border-bottom: 2px solid rgba(59, 130, 246, 0.3);
@@ -188,7 +184,6 @@ nav a.active::before {
   width: 80%;
 }
 
-/* Add padding to body to account for fixed nav */
 body {
   padding-top: 70px;
 }
@@ -292,7 +287,6 @@ body {
   overflow: hidden;
 }
 
-/* Accent border on left */
 .card::before {
   content: '';
   position: absolute;
@@ -507,9 +501,6 @@ body {
   margin-bottom: 0;
 }
 
-/* Panel (accordion content) */
-
-/* CLEAN ACCORDION PANEL */
 .panel {
   max-height: 0;
   overflow: hidden;
@@ -578,7 +569,6 @@ body {
   color: #1e40af;
 }
 
-/* arrow animation */
 .internship-accordion {
   transition: transform 0.3s ease;
 }
@@ -651,7 +641,7 @@ body {
 }
 
 .footer-content p {
-  color: #cbd5e1;
+  color: #60a5fa;
   font-size: 1.1rem;
   line-height: 2;
 }
@@ -841,7 +831,6 @@ body {
    UTILITY CLASSES & ANIMATIONS
    ========================================== */
 
-/* Fast scroll reveal for better performance */
 @keyframes quickFadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -853,15 +842,12 @@ body {
 
 /* Loading optimization */
 .no-sidebar {
-  /* Placeholder for body class */
 }
 
-/* Smooth scroll for anchors */
 section {
   scroll-margin-top: 90px;
 }
 
-/* Pulse animation for call-to-action */
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -874,16 +860,16 @@ section {
 }
 /* ================= FOOTER 2-COLUMN LAYOUT ================= */
 .footer-container {
-  max-width: 900px;          /* reduce width */
+  max-width: 900px;        
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 1.5rem;               /* reduce gap */
+  gap: 1.5rem;             
 }
 .footer-left,
 .footer-right {
-  flex: 1;                   /* equal width */
+  flex: 1;                 
 }
 
 
@@ -898,6 +884,7 @@ section {
 .footer-right p {
   margin: 0;
   font-size: 1.05rem;
+  color: #60a5fa;
 }
 
 .footer a {
@@ -924,27 +911,23 @@ section {
     align-items: center;
   }
 
-  .footer-left p,
-  .footer-right p {
-    justify-content: center;
-  }
 }
 .footer p {
   background: transparent;
   padding: 0;
 }
-/* MOBILE FOOTER – STACK ONE BY ONE */
+/* ===== FINAL MOBILE FOOTER OVERRIDE ===== */
 @media (max-width: 600px) {
   .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
   }
 
   .footer-left,
   .footer-right {
     width: 100%;
-    align-items: flex-start;
+    align-items: flex-start !important;
   }
 
   .footer-left p,
@@ -953,5 +936,6 @@ section {
   .footer-right a {
     display: block;
     width: 100%;
+    margin-bottom: 0.4rem;
   }
 }
