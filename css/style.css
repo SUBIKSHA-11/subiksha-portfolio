@@ -411,7 +411,7 @@ body {
    PROJECT ITEMS - SKY VARIATIONS
    ========================================== */
 .project-item {
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   padding: 2rem;
   background: linear-gradient(135deg, #e0e7ff 0%, #dbeafe 100%);
   border-radius: 16px;
@@ -508,28 +508,110 @@ body {
 }
 
 /* Panel (accordion content) */
+
+/* CLEAN ACCORDION PANEL */
 .panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.4s ease, 
-              padding 0.4s ease;
   opacity: 0;
-  padding: 0 1rem;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(96, 165, 250, 0.05) 100%);
-  border-radius: 12px;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   margin-top: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.06),
+    rgba(96, 165, 250, 0.06)
+  );
+  border-radius: 12px;
 }
+
+.panel > div {
+  padding: 0 1.5rem;
+}
+
+/* WHEN OPEN */
+.project-item .accordion.active + .project-short + .panel {
+  max-height: 800px;   /* big enough for all content */
+  opacity: 1;
+}
+
+.project-item .accordion.active + .project-short + .panel > div {
+  padding: 1.5rem;
+}
+
+/* ACTIVE STATE */
+.project-item .accordion.active + .project-short + .panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+/* CONTENT PADDING WHEN OPEN */
+.project-item .accordion.active + .project-short + .panel > div {
+  padding: 1.5rem;
+}
+.panel .btn {
+  margin-top: 1rem;
+}
+
 
 .panel p,
 .panel ul {
-  margin-top: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+/* ================= INTERNSHIP ACCORDION ================= */
+
+.internship-accordion {
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+  transition: color 0.3s ease;
 }
 
-/* When accordion is active */
-.accordion.active + .project-short + .panel,
-.accordion.active ~ .panel {
+.internship-accordion:hover {
+  color: #1e40af;
+}
+
+/* arrow animation */
+.internship-accordion {
+  transition: transform 0.3s ease;
+}
+
+.internship-accordion.active {
+  color: #1e40af;
+}
+
+/* PANEL */
+.internship-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.08),
+    rgba(147, 197, 253, 0.12)
+  );
+  border-radius: 12px;
+  transition: max-height 0.45s ease, opacity 0.3s ease;
+}
+
+.internship-panel > div {
+  padding: 0 1.5rem;
+}
+
+/* OPEN STATE */
+.internship-accordion.active + .internship-panel {
+  max-height: 400px;
   opacity: 1;
+}
+
+.internship-accordion.active + .internship-panel > div {
   padding: 1.5rem;
 }
 
@@ -666,7 +748,11 @@ body {
   h3 {
     font-size: 1.2rem;
   }
-
+ .project-item,
+  .internship-project,
+  .project-mini {
+    padding: 1.2rem;
+  }
   nav {
     flex-wrap: wrap;
     gap: 0.8rem;
@@ -785,4 +871,65 @@ section {
   animation: pulse 0.5s ease;
   outline: 3px solid rgba(59, 130, 246, 0.3);
   outline-offset: 3px;
+}
+/* ================= FOOTER 2-COLUMN LAYOUT ================= */
+.footer-container {
+  max-width: 900px;          /* reduce width */
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;               /* reduce gap */
+}
+.footer-left,
+.footer-right {
+  flex: 1;                   /* equal width */
+}
+
+
+.footer-left,
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-left p,
+.footer-right p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.footer a {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: #93c5fd;
+}
+
+/* ================= RESPONSIVE FOOTER ================= */
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.8rem;
+  }
+
+  .footer-left,
+  .footer-right {
+    align-items: center;
+  }
+
+  .footer-left p,
+  .footer-right p {
+    justify-content: center;
+  }
+}
+.footer p {
+  background: transparent;
+  padding: 0;
 }
