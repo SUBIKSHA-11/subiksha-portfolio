@@ -933,3 +933,25 @@ section {
   background: transparent;
   padding: 0;
 }
+/* MOBILE FOOTER – STACK ONE BY ONE */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .footer-left p,
+  .footer-right p,
+  .footer-left a,
+  .footer-right a {
+    display: block;
+    width: 100%;
+  }
+}
