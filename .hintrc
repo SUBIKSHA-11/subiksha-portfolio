@@ -4,6 +4,18 @@
   ],
   "hints": {
     "disown-opener": "off",
-    "meta-viewport": "off"
+    "meta-viewport": "off",
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ]
   }
 }
